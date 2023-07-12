@@ -20,7 +20,7 @@ public class GameController {
         int chanceMeeting = random.nextInt(100);
         if (chanceMeeting <= 100) {
             // encontrar o inimigo
-        } else if (chanceMeeting == mission) {
+        } else if (chanceMeeting == mission) { //se o numero aleatorio for 15, vai pra missão
             // achou o inimigo
         }
 
