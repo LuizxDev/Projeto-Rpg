@@ -23,16 +23,16 @@ public class ConsoleView {
             controller.writeTerminal("Escolha sua ação:");
             System.out.println("1- Explorar Floresta");
             System.out.println("2- Abrir Inventario ");
-                int choice = scanner.nextInt();
+            int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1: //explorar floresta
-                        controller.exploreForest();
+                case 1: // explorar floresta
+                    controller.exploreForest();
                     break;
-                case 2: //ver status
-                    
+                case 2: // ver status
+
                     break;
-                case 3: //ver inventario
+                case 3: // ver inventario
 
                     return;
                 default:

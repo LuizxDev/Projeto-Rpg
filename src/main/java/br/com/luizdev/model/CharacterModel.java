@@ -19,9 +19,11 @@ public class CharacterModel {
     @Setter
     private int damage;
 
-    /*public int attack(){
-        Random random = new Random();
-        this.damage = random .nextInt(this.attackDamage);
-        return this.damage;
-    }*/
+    /*
+     * public int attack(){
+     * Random random = new Random();
+     * this.damage = random .nextInt(this.attackDamage);
+     * return this.damage;
+     * }
+     */
 }

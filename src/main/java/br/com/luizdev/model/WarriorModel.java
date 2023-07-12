@@ -7,10 +7,11 @@ import lombok.Setter;
 
 public class WarriorModel extends CharacterModel {
 
-    public WarriorModel(){
+    public WarriorModel() {
         this.setLife(120);
         addPowers();
     }
+
     @Getter
     @Setter
     private int energyPoints = 80;
@@ -26,17 +27,17 @@ public class WarriorModel extends CharacterModel {
 
     private ArrayList<Integer> powers = new ArrayList<Integer>();
 
-    public void addPowers(){
+    public void addPowers() {
 
-    powers.add(basicAttack);
-    powers.add(ataqueFrenético);
-    powers.add(golpeDeEscudo);
-    powers.add(investida);
+        powers.add(basicAttack);
+        powers.add(ataqueFrenético);
+        powers.add(golpeDeEscudo);
+        powers.add(investida);
 
     }
 
     public ArrayList<Integer> getPowers() {
         return powers;
     }
-    
+
 }
