@@ -1,4 +1,4 @@
-package br.com.luizdev.model.enemys;
+package br.com.luizdev.model.enemysModel;
 
 import java.util.ArrayList;
 
