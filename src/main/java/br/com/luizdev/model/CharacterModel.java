@@ -1,23 +1,16 @@
 package br.com.luizdev.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-//import java.util.Random;
-
+@Data
+@AllArgsConstructor
 public class CharacterModel {
 
-    @Getter
-    @Setter
+    
     private int life;
-
-    @Getter
-    @Setter
     private String name;
-
-    @Getter
-    @Setter
-    private int damage;
+    private int strength;
 
     /*
      * public int attack(){

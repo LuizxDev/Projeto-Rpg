@@ -8,9 +8,7 @@ import lombok.Setter;
 public class WarriorModel extends CharacterModel {
 
     public WarriorModel() {
-        this.setName(getName());
-        this.setDamage(0);
-        this.setLife(120);
+        super(120, "VOCÊ", 30);
         addPowers();
     }
 

@@ -15,7 +15,7 @@ public class WolfController extends WolfModel {
     }
 
     public int mordidaSombria(){ //força do lobo + valor aleatorio entre 0 e 10
-        int damage = this.getDamage() + random.nextInt(10);
+        int damage = this.getStrength() + random.nextInt(10);
         return damage;
     }
 

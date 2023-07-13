@@ -7,9 +7,7 @@ import br.com.luizdev.model.CharacterModel;
 public class WolfModel extends CharacterModel {
     
     public WolfModel(){
-        this.setName("Lobo das Sombras");
-        this.setLife(80);
-        this.setDamage(40);
+        super(80, "Lobo das Sombras" , 40);
         addPowers();
     }
 

@@ -29,11 +29,10 @@ public class GameController {
             System.out.println(wolfModel.getName() + " Apareceu");
             wolfController.attack(warriorModel);
             System.out.println("Sua Vida: " + warriorModel.getLife());
-            
-            
-        } else if (chanceMeeting == mission) { //se o numero aleatorio for 15, vai pra missão
+
+        } else if (chanceMeeting == mission) { // se o numero aleatorio for 15, vai pra missão
             // achou o inimigo
-        }else {
+        } else {
             return;
         }
 
