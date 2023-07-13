@@ -27,14 +27,15 @@ public class GameController {
 
     }
 
-    public void exploreForest() {
+    public void findEnemy(WarriorModel warriorModel) throws InterruptedException {
 
-        int mission = 15;
+        int mission = 70;
         int chanceMeeting = random.nextInt(50); 
 
         if (chanceMeeting <= 50) {  //chance de encontrar o inimigo
-            this.randomEnemy();     //encontra um inimigo aleatorio
-        } else if (chanceMeeting == mission) {  // se o numero aleatorio for 15, vai pra missão
+            this.randomEnemy(warriorModel);
+            System.out.printf(" - findy Sua Vida: %d", warriorModel.getLife());
+        } else if (chanceMeeting == mission) {  // se o numero aleatorio for 15, 
 
         } else {
             return;
@@ -42,18 +43,18 @@ public class GameController {
 
     }
 
-    public void randomEnemy(){ //gera um inimigo aleatorio
-        int choice = random.nextInt(2);
-        switch (choice) {
-            case 0:
-                System.out.printf("%s Apareceu", wolfModel.getName());
+    public void randomEnemy(WarriorModel warriorModel){ //gera um inimigo aleatorio
+        int enemyRandom = random.nextInt(2);
+        switch (enemyRandom) {
+            case 0: //lobo
+                System.out.printf("%s Apareceu \n", wolfModel.getName());
                 wolfController.attack(warriorModel);
-                System.out.printf("Sua Vida: %i", warriorModel.getLife()); //mudar para o view
+                System.out.printf(" -random Sua Vida: %d", warriorModel.getLife()); //mudar para o view
                 break;
-            case 1:
-                System.out.printf("%s Apareceu", aranhaModel.getName());
+            case 1: //aranha
+                System.out.printf("%s Apareceu \n", aranhaModel.getName());
                 aranhaController.randomAttack(warriorModel);
-                System.out.printf("Sua Vida %i", warriorModel.getLife()); //mudar para o view
+                System.out.printf("- random Sua Vida %d", warriorModel.getLife()); //mudar para o view
                 break;
             default:
                 System.out.println("Opçao Invalida, Tente Novamente.");
@@ -68,7 +69,6 @@ public class GameController {
     public void writeTerminal(String texto) throws InterruptedException {
         for (int index = 0; index < texto.length(); index++) {
             System.out.print(texto.charAt(index));
-
             Thread.sleep(5); // Atraso de 50 milissegundos entre cada caractere
         }
     }

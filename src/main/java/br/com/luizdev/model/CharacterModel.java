@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor // cria o metodo contrutor com todos os atributos
 public class CharacterModel {
 
-    private int life;
+    protected int life;
     private String name;
     private int strength;
 

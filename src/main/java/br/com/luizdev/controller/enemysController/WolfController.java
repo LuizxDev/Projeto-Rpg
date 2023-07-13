@@ -21,15 +21,25 @@ public class WolfController extends WolfModel {
 
     //dano fixo = 25
     public void investidaDasSombras(WarriorModel warriorModel){
-        warriorModel.setLife(warriorModel.getLife() - getPowers().get(1));
+        warriorModel.setLife(warriorModel.getLife() - getPowers().get(1)); 
+        System.out.printf("-investida- Sua Vida %d", warriorModel.getLife());
     }
     
     public void attack (WarriorModel warriorModel){
-        int indiceAttack = random.nextInt(getPowers().size());
-        if ( indiceAttack == 0) {
-            warriorModel.setLife(warriorModel.getLife() - this.mordidaSombria());
-        } else {
+        int indiceAttack = random.nextInt(2);
+         switch (indiceAttack) {
+            case 1:
+                System.out.printf("-attack- Sua Vida %d", warriorModel.getLife());
+            int damage = this.mordidaSombria();
+            warriorModel.setLife(warriorModel.getLife() - damage);
+                break;
+            case 2:
+                System.out.printf("-attack- Sua Vida %d", warriorModel.getLife());
             investidaDasSombras(warriorModel);
-        }
+                break;
+            default:
+                break;
+         }
     }
+
 }

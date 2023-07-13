@@ -11,7 +11,7 @@ public class WolfModel extends CharacterModel {
         addPowers();
     }
 
-    private int mordidaSombria; //força do lobo + valor aleatorio entre 0 e 10
+    private int mordidaSombria = 20; //força do lobo + valor aleatorio entre 0 e 10
     private int investidaDasSombras = 25; //valor fixo de 25
 
     ArrayList<Integer> powers = new ArrayList<Integer>();

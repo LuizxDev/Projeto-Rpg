@@ -14,18 +14,19 @@ public class AranhaController extends AranhaModel{
     }
 
     public void attackTeiaPegajosa (WarriorModel warriorModel){
-        warriorModel.setLife(warriorModel.getLife() + - this.getPowers().get(0));
+        warriorModel.setLife(warriorModel.getLife() - this.getPowers().get(0));
     }
 
     public void attackVenenoso (WarriorModel warriorModel){
-        warriorModel.setLife(warriorModel.getLife() + - this.getPowers().get(1));
+        warriorModel.setLife(warriorModel.getLife() - this.getPowers().get(1));
     }
     
     public void randomAttack(WarriorModel warriorModel){
-        int indiceAttack = random.nextInt(1);
+        int indiceAttack = random.nextInt(2);
         switch (indiceAttack) {
             case 0:
                     this.attackTeiaPegajosa(warriorModel);
+                    
                 break;
             case 1:
                     this.attackVenenoso(warriorModel);
@@ -34,5 +35,5 @@ public class AranhaController extends AranhaModel{
                 break;
         }
     }
-    
+
 }

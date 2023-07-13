@@ -3,13 +3,16 @@ package br.com.luizdev.view;
 import java.util.Scanner;
 
 import br.com.luizdev.controller.GameController;
+import br.com.luizdev.model.WarriorModel;
 
 public class ConsoleView {
 
         private GameController controller;
         private Scanner scanner;
+        private  WarriorModel warriorModel;
 
         public ConsoleView(GameController controller) {
+                warriorModel = new WarriorModel();
                 this.controller = controller;
                 scanner = new Scanner(System.in);
 
@@ -18,7 +21,7 @@ public class ConsoleView {
         public void startGame() throws InterruptedException {
 
                 do {
-                        this.initialDialog();
+                        //this.initialDialog();
 
                         controller.writeTerminal("Escolha sua ação:");
                         System.out.println("");
@@ -28,7 +31,10 @@ public class ConsoleView {
 
                         switch (choice) {
                                 case 1: // explorar floresta
-                                        controller.exploreForest();
+                                if (!controller.isGameOver()) {
+                                        controller.findEnemy(warriorModel);
+                                        this.choice();
+                                    }
                                         break;
                                 case 2: // ver status
 
@@ -90,4 +96,19 @@ public class ConsoleView {
                 System.out.println("");
         }
 
+        public void choice() throws InterruptedException{
+                controller.writeTerminal("O inimigo atacou voce.");
+                controller.writeTerminal("Oque voce deseja fazer?");
+                        int choice = scanner.nextInt();
+                switch (choice) {
+                        case 1: //atacar
+                                
+                                break;
+                        case 2: //abrir enventario
+
+                                break;
+                        default:
+                                break;
+                }
+        }
 }
