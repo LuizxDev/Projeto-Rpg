@@ -34,7 +34,6 @@ public class GameController {
 
         if (chanceMeeting <= 50) {  //chance de encontrar o inimigo
             this.randomEnemy(warriorModel);
-            System.out.printf(" - findy Sua Vida: %d", warriorModel.getLife());
         } else if (chanceMeeting == mission) {  // se o numero aleatorio for 15, 
 
         } else {
@@ -49,12 +48,12 @@ public class GameController {
             case 0: //lobo
                 System.out.printf("%s Apareceu \n", wolfModel.getName());
                 wolfController.attack(warriorModel);
-                System.out.printf(" -random Sua Vida: %d", warriorModel.getLife()); //mudar para o view
+                System.out.printf("Sua Vida: %d", warriorModel.getLife()); //mudar para o view
                 break;
             case 1: //aranha
                 System.out.printf("%s Apareceu \n", aranhaModel.getName());
                 aranhaController.randomAttack(warriorModel);
-                System.out.printf("- random Sua Vida %d", warriorModel.getLife()); //mudar para o view
+                System.out.printf("Sua Vida %d", warriorModel.getLife()); //mudar para o view
                 break;
             default:
                 System.out.println("Opçao Invalida, Tente Novamente.");
@@ -66,11 +65,5 @@ public class GameController {
         return warriorModel.getLife() <= 0;
     }
 
-    public void writeTerminal(String texto) throws InterruptedException {
-        for (int index = 0; index < texto.length(); index++) {
-            System.out.print(texto.charAt(index));
-            Thread.sleep(5); // Atraso de 50 milissegundos entre cada caractere
-        }
-    }
 
 }
