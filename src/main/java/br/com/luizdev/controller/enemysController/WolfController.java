@@ -14,8 +14,9 @@ public class WolfController extends WolfModel {
         random = new Random();
     }
 
-    public void mordidaSombria(){ //força do lobo + valor aleatorio entre 0 e 10
-        this.setDamage(random.nextInt(10));
+    public int mordidaSombria(){ //força do lobo + valor aleatorio entre 0 e 10
+        int damage = this.getDamage() + random.nextInt(10);
+        return damage;
     }
 
     //dano fixo = 25
@@ -23,4 +24,12 @@ public class WolfController extends WolfModel {
         warriorModel.setLife(warriorModel.getLife() - getPowers().get(1));
     }
     
+    public void attack (WarriorModel warriorModel){
+        int indiceAttack = random.nextInt(getPowers().size());
+        if ( indiceAttack == 0) {
+            warriorModel.setLife(warriorModel.getLife() - this.mordidaSombria());
+        } else {
+            investidaDasSombras(warriorModel);
+        }
+    }
 }
