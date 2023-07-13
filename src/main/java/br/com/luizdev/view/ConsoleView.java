@@ -44,23 +44,6 @@ public class ConsoleView {
 
         }
 
-
-        public void choice() throws InterruptedException {
-                this.writeTerminal("O inimigo atacou voce.");
-                this.writeTerminal("Oque voce deseja fazer?");
-                int choice = scanner.nextInt();
-                switch (choice) {
-                        case 1: // atacar
-
-                                break;
-                        case 2: // abrir enventario
-
-                                break;
-                        default:
-                                break;
-                }
-        }
-
         public void writeTerminal(String texto) throws InterruptedException {
                 System.out.println("--------------------------------");
                 for (int index = 0; index < texto.length(); index++) {
