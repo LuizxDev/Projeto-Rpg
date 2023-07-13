@@ -17,5 +17,18 @@ public class WarriorController extends WarriorModel {
         int damage = powerIndice + this.getStrength();
         return damage;
     }
-
-}
+    
+        public void showStatus() {
+            System.out.println("----- Status do Guerreiro -----");
+            System.out.println("Nome: " + this.getName());
+            System.out.println("Vida: " + this.getLife());
+            System.out.println("Força: " + this.getStrength());
+            System.out.println("Pontos de Energia: " + this.getEnergyPoints());
+            // Exibir mais atributos se necessário
+            System.out.println("--------------------------------");
+        }
+    
+        // Restante do código
+    
+    }
+    

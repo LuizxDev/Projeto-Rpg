@@ -29,10 +29,14 @@ public class WolfController extends WolfModel {
         int indiceAttack = random.nextInt(2);
          switch (indiceAttack) {
             case 1:        
+            System.out.println("O lobo avança e desfere uma mordida sombria, combinando sua força com o poder das trevas!");
+
             int damage = this.mordidaSombria();
             warriorModel.setLife(warriorModel.getLife() - damage);
                 break;
-            case 2:        
+            case 2:       
+            System.out.println("O lobo desaparece nas sombras e surge em uma investida poderosa, atingindo você com força!");
+ 
             investidaDasSombras(warriorModel);
                 break;
             default:
