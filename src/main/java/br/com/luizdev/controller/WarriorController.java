@@ -19,15 +19,12 @@ public class WarriorController extends WarriorModel {
     }
     
         public void showStatus(WarriorModel warriorModel) {
+            System.out.println("\n");
             System.out.println("----- Status do Guerreiro -----");
             System.out.println("Nome: " + warriorModel.getName());
             System.out.println("Vida: " + warriorModel.getLife());
-            System.out.println("Força: " + warriorModel.getStrength());
-            // Exibir mais atributos se necessário
             System.out.println("--------------------------------");
+            System.out.println("\n");
         }
-    
-        // Restante do código
-    
     }
     

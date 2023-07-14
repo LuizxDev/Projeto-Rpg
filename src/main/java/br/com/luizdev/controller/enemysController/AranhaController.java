@@ -4,6 +4,7 @@ import java.util.Random;
 
 import br.com.luizdev.model.WarriorModel;
 import br.com.luizdev.model.enemysModel.AranhaModel;
+import br.com.luizdev.view.ConsoleView;
 
 public class AranhaController extends AranhaModel {
 
@@ -22,22 +23,15 @@ public class AranhaController extends AranhaModel {
         warriorModel.setLife(warriorModel.getLife() - this.getPowers().get(1));
     }
 
-    public void randomAttack(WarriorModel warriorModel) {
+    public void randomAttack(WarriorModel warriorModel) throws InterruptedException {
         int indiceAttack = random.nextInt(2);
         switch (indiceAttack) {
             case 0:
-
-                System.out.printf(
-                        "A %s apareceu repentinamente e lançou sua teia pegajosa em você! Sua vida diminuiu após o ataque.\n",
-                        this.getName());
+                ConsoleView.writeTerminal("A "+this.getName()+" apareceu repentinamente e lançou sua teia pegajosa em você! Sua vida diminuiu após o ataque.\n");
                 this.attackTeiaPegajosa(warriorModel);
-
                 break;
             case 1:
-
-                System.out.printf(
-                        "A %s soltou um ataque venenoso em você! Sua vida diminuiu após o veneno se espalhar pelo seu corpo.\n",
-                        this.getName());
+                ConsoleView.writeTerminal("A "+this.getName()+" soltou um ataque venenoso em você! Sua vida diminuiu após o veneno se espalhar pelo seu corpo.\n");
                 this.attackVenenoso(warriorModel);
 
                 break;
