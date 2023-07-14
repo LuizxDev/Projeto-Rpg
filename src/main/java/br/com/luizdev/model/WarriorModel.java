@@ -5,8 +5,15 @@ import java.util.ArrayList;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Representa um modelo de guerreiro.
+ */
 public class WarriorModel extends CharacterModel {
 
+    /**
+     * Cria uma nova instância de WarriorModel com valores padrão.
+     * A vida inicial é 120 e a força é 30.
+     */
     public WarriorModel() {
         super(120, "VOCÊ", 30);
         addPowers();
@@ -16,6 +23,13 @@ public class WarriorModel extends CharacterModel {
     @Getter
     private int portion = 2;
 
+    /**
+     * Define a quantidade de poções disponíveis para o guerreiro.
+     * O valor máximo é 10.
+     * 
+     * @param portion é A quantidade de poções que sera somada
+     * @return A quantidade de porçoes
+     */
     public int setPortion(int portion){
 
         final int MAX_POISON = 10;

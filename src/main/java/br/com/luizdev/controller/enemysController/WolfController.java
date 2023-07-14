@@ -14,13 +14,13 @@ public class WolfController extends WolfModel {
         random = new Random();
     }
 
-    public int mordidaSombria(){ //força do lobo + valor aleatorio entre 0 e 10
+    public int calcularDanoMordidaSombria(){ //força do lobo + valor aleatorio entre 0 e 10
         int damage = this.getStrength() + random.nextInt(10);
         return damage;
     }
 
     //dano fixo = 25
-    public void investidaDasSombras(WarriorModel warriorModel){
+    public void realizarInvestidaDasSombras(WarriorModel warriorModel){
         warriorModel.setLife(warriorModel.getLife() - getPowers().get(1)); 
         System.out.printf("Sua Vida %d", warriorModel.getLife());
     }
@@ -31,13 +31,13 @@ public class WolfController extends WolfModel {
             case 1:        
             System.out.println("O lobo avança e desfere uma mordida sombria, combinando sua força com o poder das trevas!");
 
-            int damage = mordidaSombria();
+            int damage = calcularDanoMordidaSombria();
             warriorModel.setLife(warriorModel.getLife() - damage);
                 break;
             case 2:       
             System.out.println("O lobo desaparece nas sombras e surge em uma investida poderosa, atingindo você com força!");
  
-            investidaDasSombras(warriorModel);
+            realizarInvestidaDasSombras(warriorModel);
                 break;
             default:
                 break;

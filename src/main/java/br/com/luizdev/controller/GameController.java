@@ -31,20 +31,22 @@ public class GameController {
 
     }
 
-    public void exploreMontain(WarriorModel warriorModel) throws InterruptedException{
+    public void exploreMountain(WarriorModel warriorModel) throws InterruptedException{
 
-        int ChancePortion = 15; //15% de chacnce de achar 1 porção
-        int mission = 70;
+        final int CHANCE_ENEMY = 50;
+        final int CHANCE_PORTION = 15;
+        final int MISSION_CHANCE = 70;
+
         int chance = random.nextInt(100);
         int chanceMeetingEnemy = random.nextInt(100); //100%
 
-        if (chanceMeetingEnemy <= 50) { //50% de chance de encontrar inimigo
+        if (chanceMeetingEnemy <= CHANCE_ENEMY) { //50% de chance de encontrar inimigo
             encounterEnemy(warriorModel);
 
-        } else if(chance == mission){
+        } else if(chance == MISSION_CHANCE){ //70% de achar o inimigo principal
             ConsoleView.writeTerminal("Você encontrou o covil do inimigo! Prepare-se para uma batalha desafiadora e enfrente os capangas do vilão para chegar até ele.");
             startMission();
-        }else if(chance == ChancePortion){
+        }else if(chance == CHANCE_PORTION){
             encounterPosion();
         }else{
             ConsoleView.writeTerminal("Você explorou a área, mas não encontrou nenhum inimigo. A Montanha das Sombraa está quieta por enquanto.");
@@ -63,7 +65,7 @@ public class GameController {
                 break;
             case 1: //aranha
             ConsoleView.writeTerminal("Uma " + aranhaModel.getName() +" gigante apareceu diante de você! Esteja preparado para enfrentar essa ameaça aracnídea!\n");           
-                aranhaController.randomAttack(warriorModel);
+                aranhaController.executeRandomAttack(warriorModel);
                 warriorController.showStatus(warriorModel);
                 break;
             default:

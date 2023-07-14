@@ -23,7 +23,7 @@ public class AranhaController extends AranhaModel {
         warriorModel.setLife(warriorModel.getLife() - this.getPowers().get(1));
     }
 
-    public void randomAttack(WarriorModel warriorModel) throws InterruptedException {
+    public void executeRandomAttack(WarriorModel warriorModel) throws InterruptedException {
         int indiceAttack = random.nextInt(2);
         switch (indiceAttack) {
             case 0:

@@ -34,7 +34,7 @@ public class ConsoleView {
                         switch (choice) {
                                 case 1: // explorar floresta
                                         limparTelaConsole();
-                                        controller.exploreMontain(warriorModel);
+                                        controller.exploreMountain(warriorModel);
                                         
                                         break;
                                 case 2: //ver status
