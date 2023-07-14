@@ -9,7 +9,7 @@ import br.com.luizdev.model.CharacterModel;
  */
 public class WolfModel extends CharacterModel {
 
-    private Random random;
+    Random random = new Random(life);
 
     /**
      * Cria uma nova instancia de WolfModel com valores padroes
@@ -17,11 +17,10 @@ public class WolfModel extends CharacterModel {
      */
     public WolfModel(){
         super(80, "Lobo das Sombras" , 40);
-        random = new Random();
         addPowers();
     }
-    
-    private int mordidaSombria = 20 + random.nextInt(10); //força do lobo + valor aleatorio entre 01 e 10
+
+    private int mordidaSombria = 20 + random.nextInt(10);
     private final int INVESTIDA_DAS_SOMBRAS = 25; //valor fixo de 25
 
     

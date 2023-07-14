@@ -5,12 +5,13 @@ Anotações de ideias, erros para resolver e coisas que faltam fazer
 ## Erros (Importante)
 
 - Ageitar ataque investida do lobo (Concluido)
+- Calculo da Porção errado
 
 ## A fazer (Importante)
 
 - Criar sistema de ataque do personagem principal
 - Fazer uma função so para Executar Ataques
-- substir metodo de condiçao para o swich na Função exploresMountain
+- substir metodo de condiçao para o swich na Função exploresMountain (Concluido)
 
 ## Ideias
 

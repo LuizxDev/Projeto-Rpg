@@ -33,24 +33,27 @@ public class GameController {
 
     public void exploreMountain(WarriorModel warriorModel) throws InterruptedException{
 
-        final int CHANCE_ENEMY = 50;
-        final int CHANCE_PORTION = 15;
-        final int MISSION_CHANCE = 70;
+        final int CHANCE_PORTION = 30;
+        final int CHANCE_ENEMY = 70;
+        final int MISSION_CHANCE = 15;
 
-        int chance = random.nextInt(100);
-        int chanceMeetingEnemy = random.nextInt(100); //100%
 
-        if (chanceMeetingEnemy <= CHANCE_ENEMY) { //50% de chance de encontrar inimigo
-            encounterEnemy(warriorModel);
+        int chance = random.nextInt(100); // 100%
 
-        } else if(chance == MISSION_CHANCE){ //70% de achar o inimigo principal
-            ConsoleView.writeTerminal("Você encontrou o covil do inimigo! Prepare-se para uma batalha desafiadora e enfrente os capangas do vilão para chegar até ele.");
-            startMission();
-        }else if(chance == CHANCE_PORTION){
-            encounterPosion();
-        }else{
-            ConsoleView.writeTerminal("Você explorou a área, mas não encontrou nenhum inimigo. A Montanha das Sombraa está quieta por enquanto.");
-            return;
+        switch (chance) {
+            case MISSION_CHANCE:
+                ConsoleView.writeTerminal("Você encontrou o covil do inimigo! Prepare-se para uma batalha desafiadora e enfrente os capangas do vilão para chegar até ele.");
+                break;
+            default:
+                if (chance <= CHANCE_ENEMY) {
+                    encounterEnemy(warriorModel);
+                } else if(chance >= CHANCE_PORTION){
+                    encounterPosion();
+                    return;
+                }else{
+                    ConsoleView.writeTerminal("Você explorou a área, mas não encontrou nenhum inimigo. A Montanha das Sombras está quieta por enquanto.");
+                    return;
+                }
         }
     }
 
