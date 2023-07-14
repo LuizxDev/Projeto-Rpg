@@ -6,7 +6,7 @@
 
 - Ageitar ataque investida do lobo `(Concluido)`
 
-- Calculo da Porção errado `(A fazer)`
+- Calculo da Porção errado `(Concluido)`
 
 
 > ## A fazer `(Importante)`
