@@ -12,9 +12,21 @@ public class WarriorModel extends CharacterModel {
         addPowers();
     }
 
+
     @Getter
-    @Setter
-    private int energyPoints = 80;
+    private int portion = 2;
+
+    public int setPortion(int portion){
+
+        final int MAX_POISON = 10;
+
+        if(this.portion > 10){
+            this.portion = MAX_POISON;
+        }else{
+            this.portion = portion;
+        }
+        return this.portion;
+    }
 
     @Getter
     @Setter

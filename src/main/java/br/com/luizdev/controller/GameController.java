@@ -32,16 +32,19 @@ public class GameController {
 
     public void exploreMontain(){
 
+        int ChancePortion = 15; //15% de chacnce de achar 1 porção
         int mission = 70;
-        int chanceMission = random.nextInt(100);
+        int chance = random.nextInt(100);
         int chanceMeetingEnemy = random.nextInt(100); //100%
 
         if (chanceMeetingEnemy <= 50) { //50% de chance de encontrar inimigo
             encounterEnemy();
-        } else if(chanceMission == mission){
+        } else if(chance == mission){
             System.out.println("Você encontrou o covil do inimigo! Prepare-se para uma batalha desafiadora e enfrente os capangas do vilão para chegar até ele.");
             startMission();
-        }else {
+        }else if(chance == ChancePortion){
+            encounterPosion();
+        }else{
             System.out.println("Você explorou a área, mas não encontrou nenhum inimigo. A Montanha das Sombraa está quieta por enquanto.");
             return;
         }
@@ -67,6 +70,10 @@ public class GameController {
             System.out.println("Opção Inválida. Tente Novamente.");
                 break;
         }
+    }
+
+    public void encounterPosion(){
+        warriorModel.setPortion(1);
     }
 
     public boolean isGameOver() {
