@@ -60,7 +60,7 @@ public class GameController {
         switch (enemyRandom) {
             case 0: //lobo
             ConsoleView.writeTerminal("Um "+wolfModel.getName()+" feroz surgiu diante de você! Esteja pronto para enfrentar esse lobo das sombras!\n");
-            wolfController.attack(warriorModel);
+            wolfController.RealizarAtaqueAleatorio(warriorModel);
             warriorController.showStatus(warriorModel);   
                 break;
             case 1: //aranha
