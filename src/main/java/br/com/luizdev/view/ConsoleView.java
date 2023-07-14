@@ -3,13 +3,16 @@ package br.com.luizdev.view;
 import java.util.Scanner;
 
 import br.com.luizdev.controller.GameController;
+import br.com.luizdev.model.WarriorModel;
 
 public class ConsoleView {
 
         private GameController controller;
         private Scanner scanner;
+        private WarriorModel warriorModel;
 
         public ConsoleView(GameController controller) {
+                warriorModel = new WarriorModel();
                 this.controller = controller;
                 scanner = new Scanner(System.in);
 
@@ -18,24 +21,25 @@ public class ConsoleView {
         public void startGame() throws InterruptedException {
 
                 do {
-                        this.initialDialog();
+                        //this.initialDialog();
 
                         this.writeTerminal("Escolha sua ação:");
                         System.out.println("");
-                        System.out.println("1- Explorar Floresta");
-                        System.out.println("2- Abrir Inventario ");
+                        System.out.println("|1|- Explorar Floresta");
+                        System.out.println("|2|- Ver Status");
+                        System.out.println("|3|- Abrir Inventario ");
                         System.out.println("--------------------------------");
                         int choice = scanner.nextInt();
 
                         switch (choice) {
                                 case 1: // explorar floresta
-                                        controller.exploreMontain();
+                                        controller.exploreMontain(warriorModel);
                                         break;
                                 case 2: // ver status
 
                                         break;
                                 case 3: // ver inventario
-
+                                controller.inventory();
                                         return;
                                 default:
                                         break;
@@ -98,4 +102,9 @@ public class ConsoleView {
                                 "[VOCÊ]: Agradeço pela confiança e pelo auxílio. Partirei imediatamente em busca da Pedra da Eternidade. Não falharei!");
                 System.out.println("");
         }
+
+        public static void main(String[] args) {
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
 }

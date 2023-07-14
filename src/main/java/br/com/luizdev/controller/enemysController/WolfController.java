@@ -31,7 +31,7 @@ public class WolfController extends WolfModel {
             case 1:        
             System.out.println("O lobo avança e desfere uma mordida sombria, combinando sua força com o poder das trevas!");
 
-            int damage = this.mordidaSombria();
+            int damage = mordidaSombria();
             warriorModel.setLife(warriorModel.getLife() - damage);
                 break;
             case 2:       

@@ -30,7 +30,7 @@ public class GameController {
 
     }
 
-    public void exploreMontain(){
+    public void exploreMontain(WarriorModel warriorModel){
 
         int ChancePortion = 15; //15% de chacnce de achar 1 porção
         int mission = 70;
@@ -38,7 +38,8 @@ public class GameController {
         int chanceMeetingEnemy = random.nextInt(100); //100%
 
         if (chanceMeetingEnemy <= 50) { //50% de chance de encontrar inimigo
-            encounterEnemy();
+            encounterEnemy(warriorModel);
+
         } else if(chance == mission){
             System.out.println("Você encontrou o covil do inimigo! Prepare-se para uma batalha desafiadora e enfrente os capangas do vilão para chegar até ele.");
             startMission();
@@ -50,7 +51,7 @@ public class GameController {
         }
     }
 
-    public void encounterEnemy(){ //encontra um inimigo aleatorio entre aranha e lobo
+    public void encounterEnemy(WarriorModel warriorModel){ //encontra um inimigo aleatorio entre aranha e lobo
         int enemyRandom = random.nextInt(2);
 
         switch (enemyRandom) {
@@ -58,13 +59,13 @@ public class GameController {
             System.out.printf("Um %s feroz surgiu diante de você! Esteja pronto para enfrentar esse lobo das sombras!\n", wolfModel.getName());
 
             wolfController.attack(warriorModel);
-            warriorController.showStatus();   
+            warriorController.showStatus(warriorModel);   
                 break;
             case 1: //aranha
                 System.out.printf("Uma %s gigante apareceu diante de você! Esteja preparado para enfrentar essa ameaça aracnídea!\n", aranhaModel.getName());
 
                 aranhaController.randomAttack(warriorModel);
-                warriorController.showStatus();
+                warriorController.showStatus(warriorModel);
                 break;
             default:
             System.out.println("Opção Inválida. Tente Novamente.");
@@ -82,6 +83,12 @@ public class GameController {
 
     public void startMission(){
         //a fazer
+    }
+
+    public void inventory(){
+        System.out.println("------ Inventario -------");
+        System.out.println("|Porção|------------ |" + warriorModel.getPortion() + "un|");
+            System.out.println("--------------------------------");
     }
 
 

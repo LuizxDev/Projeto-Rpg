@@ -14,7 +14,8 @@ public class AranhaController extends AranhaModel {
     }
 
     public void attackTeiaPegajosa(WarriorModel warriorModel) {
-        warriorModel.setLife(warriorModel.getLife() - this.getPowers().get(0));
+        int damage = getPowers().get(0);
+        warriorModel.setLife(warriorModel.getLife() - damage);
     }
 
     public void attackVenenoso(WarriorModel warriorModel) {

@@ -18,11 +18,11 @@ public class WarriorController extends WarriorModel {
         return damage;
     }
     
-        public void showStatus() {
+        public void showStatus(WarriorModel warriorModel) {
             System.out.println("----- Status do Guerreiro -----");
-            System.out.println("Nome: " + this.getName());
-            System.out.println("Vida: " + this.getLife());
-            System.out.println("Força: " + this.getStrength());
+            System.out.println("Nome: " + warriorModel.getName());
+            System.out.println("Vida: " + warriorModel.getLife());
+            System.out.println("Força: " + warriorModel.getStrength());
             // Exibir mais atributos se necessário
             System.out.println("--------------------------------");
         }
