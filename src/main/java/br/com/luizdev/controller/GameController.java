@@ -7,6 +7,7 @@ import br.com.luizdev.controller.enemysController.WolfController;
 import br.com.luizdev.model.WarriorModel;
 import br.com.luizdev.model.enemysModel.AranhaModel;
 import br.com.luizdev.model.enemysModel.WolfModel;
+import br.com.luizdev.model.intensModel.PortionModel;
 import br.com.luizdev.view.ConsoleView;
 
 public class GameController {
@@ -18,9 +19,11 @@ public class GameController {
     private WolfModel wolfModel;
     private AranhaModel aranhaModel;
     private AranhaController aranhaController;
+    private PortionModel portionModel;
 
     public GameController() {
 
+        portionModel = new PortionModel();
         warriorController = new WarriorController();
         aranhaController = new AranhaController();
         aranhaModel = new AranhaModel();
@@ -77,8 +80,9 @@ public class GameController {
         }
     }
 
-    public void encounterPosion(){
-        warriorModel.setPortion(1);
+    public void encounterPosion() throws InterruptedException{
+        ConsoleView.writeTerminal(" Você encontrou uma poção! Em meio a trevas e perigos, a sorte sorri para você.");
+        portionModel.setPortion(1);
     }
 
     public boolean isGameOver() {
@@ -91,7 +95,7 @@ public class GameController {
 
     public void inventory(){
         System.out.println("------ Inventario -------");
-        System.out.println("|Porção|------------ |" + warriorModel.getPortion() + "un|");
+        System.out.println("|Porção|------------ |" + portionModel.getPortion() + "un|");
             System.out.println("--------------------------------");
     }
 

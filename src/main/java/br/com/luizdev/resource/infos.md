@@ -1,25 +1,27 @@
 # Anotações
 
-Anotações de ideias, erros para resolver e coisas que faltam fazer
+> Anotações de ideias, erros para resolver e coisas que faltam fazer
 
-## Erros (Importante)
+> ## Erros `(Importante)`
 
-- Ageitar ataque investida do lobo (Concluido)
-- Calculo da Porção errado
+- Ageitar ataque investida do lobo `(Concluido)`
 
-## A fazer (Importante)
+- Calculo da Porção errado `(A fazer)`
 
-- Criar sistema de ataque do personagem principal
-- Fazer uma função so para Executar Ataques
-- substir metodo de condiçao para o swich na Função exploresMountain (Concluido)
 
-## Ideias
+> ## A fazer `(Importante)`
+
+- Criar sistema de ataque do personagem principal `(A fazer)`
+- Fazer uma função so para Executar Ataques `(A fazer)`
+- substir metodo de condiçao para o swich na Função exploresMountain `(Concluido)`
+
+> ## Padroes 
+
+- Ataques retornarao apenas o seu dano (afetar a vida apenas no metodo Executar Ataques);
+
+> ## Ideias
 
 - Criar sistema de xp
 - Implementar um sistema de economia no jogo, com lojas e itens que podem ser comprados.
 - Incluir desafios e obstáculos adicionais, como quebra-cabeças ou enigmas, que exigem que o jogador use sua inteligência e habilidades estratégicas.
 - Criar um sistema de exploração de diferentes locais, como masmorras, florestas, cidades, com encontros aleatórios e tesouros escondidos.
-
-## Padroes 
-
-- Ataques retornarao apenas o seu dano (afetar a vida apenas no metodo Executar Ataques);
