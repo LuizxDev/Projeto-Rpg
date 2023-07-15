@@ -1,18 +1,13 @@
 package br.com.luizdev.controller;
 
-import java.util.Random;
-
 import br.com.luizdev.controller.enemysController.AranhaController;
-import br.com.luizdev.model.enemysModel.AranhaModel;
-
 import br.com.luizdev.controller.enemysController.WolfController;
-import br.com.luizdev.model.enemysModel.WolfModel;
-
 import br.com.luizdev.model.WarriorModel;
-
+import br.com.luizdev.model.enemysModel.AranhaModel;
+import br.com.luizdev.model.enemysModel.WolfModel;
 import br.com.luizdev.model.intensModel.PortionModel;
-
 import br.com.luizdev.view.ConsoleView;
+import java.util.Random;
 
 public class GameController {
 
@@ -28,7 +23,6 @@ public class GameController {
     private PortionModel portionModel;
 
     public GameController() {
-
         portionModel = new PortionModel();
 
         warriorModel = new WarriorModel();
@@ -39,12 +33,12 @@ public class GameController {
         wolfController = new WolfController();
 
         random = new Random();
-
     }
 
-    public void exploreMountain(WarriorModel warriorModel, WolfModel wolfModel, AranhaModel aranhaModel)
-            throws InterruptedException {
-
+    public void exploreMountain(
+            WarriorModel warriorModel,
+            WolfModel wolfModel,
+            AranhaModel aranhaModel) throws InterruptedException {
         final int CHANCE_PORTION = 30;
         final int CHANCE_ENEMY = 70;
         final int MISSION_CHANCE = 15;
@@ -70,24 +64,49 @@ public class GameController {
         }
     }
 
-    public void encounterEnemy(WarriorModel warriorModel, WolfModel wolfModel, AranhaModel aranhaModel)
-            throws InterruptedException { // encontra um inimigo aleatorio entre aranha e lobo
+    public void encounterEnemy(
+            WarriorModel warriorModel,
+            WolfModel wolfModel,
+            AranhaModel aranhaModel) throws InterruptedException { // encontra um inimigo aleatorio entre aranha e lobo
         int enemyRandom = random.nextInt(2);
 
         switch (enemyRandom) {
             case 0: // lobo
-                ConsoleView.writeTerminal("Um " + wolfModel.getName()
-                        + " feroz surgiu diante de você! Esteja pronto para enfrentar esse lobo das sombras!\n");
-                wolfController.RealizarAtaqueAleatorio(warriorModel);
-                warriorController.showStatus(warriorModel);
-                warriorController.executeAttack(wolfModel, aranhaModel, enemyRandom);
+                do {
+                    ConsoleView.writeTerminal(
+                            "Um " +
+                                    wolfModel.getName() +
+                                    " feroz surgiu diante de você! Esteja pronto para enfrentar esse lobo das sombras!\n");
+                    wolfController.RealizarAtaqueAleatorio(warriorModel);
+                    warriorController.showStatus(warriorModel);
+                    warriorController.executeAttack(wolfModel, aranhaModel, enemyRandom);
+                    wolfController.showStatus(wolfModel);
+                } while (warriorModel.getLife() > 0 || wolfModel.getLife() > 0);
+
+                if (warriorModel.getLife() <= 0) {
+                    System.out.println("Voce derrotou a aranha com tudo.");
+                } else {
+                    System.out.println("Voce Morreu.");
+                }
+
                 break;
             case 1: // aranha
-                ConsoleView.writeTerminal("Uma " + aranhaModel.getName()
-                        + " gigante apareceu diante de você! Esteja preparado para enfrentar essa ameaça aracnídea!\n");
-                aranhaController.executeRandomAttack(warriorModel);
-                warriorController.showStatus(warriorModel);
-                warriorController.executeAttack(wolfModel, aranhaModel, enemyRandom);
+                do {
+                    ConsoleView.writeTerminal(
+                            "Uma " +
+                                    aranhaModel.getName() +
+                                    " gigante apareceu diante de você! Esteja preparado para enfrentar essa ameaça aracnídea!\n");
+                    aranhaController.executeRandomAttack(warriorModel);
+                    warriorController.showStatus(warriorModel);
+                    warriorController.executeAttack(wolfModel, aranhaModel, enemyRandom);
+                    aranhaController.showStatus(aranhaModel);
+                } while (warriorModel.getLife() > 0 || aranhaModel.getLife() > 0);
+
+                if (warriorModel.getLife() <= 0) {
+                    System.out.println("Voce derrotou a aranha com tudo.");
+                } else {
+                    System.out.println("Voce Morreu.");
+                }
                 break;
             default:
                 System.out.println("Opção Inválida. Tente Novamente.");
@@ -96,7 +115,8 @@ public class GameController {
     }
 
     public void encounterPosion() throws InterruptedException {
-        ConsoleView.writeTerminal(" Você encontrou uma poção! Em meio a trevas e perigos, a sorte sorri para você.");
+        ConsoleView.writeTerminal(
+                " Você encontrou uma poção! Em meio a trevas e perigos, a sorte sorri para você.");
         portionModel.setPortion(1);
     }
 
@@ -105,17 +125,16 @@ public class GameController {
     }
 
     public void startMission() {
-
     }
 
     public void inventory() {
         System.out.println("------ Inventario -------");
-        System.out.println("|Porção|------------ |" + portionModel.getPortion() + "un|");
+        System.out.println(
+                "|Porção|------------ |" + portionModel.getPortion() + "un|");
         System.out.println("--------------------------------");
     }
 
     public void showStatusWarrior(WarriorModel warriorModel) {
         warriorController.showStatus(warriorModel);
     }
-
 }

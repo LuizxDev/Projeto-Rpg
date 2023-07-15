@@ -66,20 +66,25 @@ public class WarriorController {
 
     public void showStatus(WarriorModel warriorModel) {
         System.out.println("\n");
-        System.out.println("----- Status do Guerreiro -----");
-        System.out.println("Nome: " + warriorModel.getName());
-        System.out.println("Vida: " + warriorModel.getLife());
-        System.out.println("--------------------------------");
-        System.out.println("\n");
+        System.out.println("╔═══════════════════════════╗");
+        System.out.println("║        Seu Status         ║");
+        System.out.println("╟───────────────────────────╢");
+        System.out.printf("║ Nome: %-18s  ║%n", warriorModel.getName());
+        System.out.println("╟───────────────────────────╢");
+        System.out.printf("║ Vida: %-18d  ║%n", warriorModel.getLife());
+        System.out.println("╚═══════════════════════════╝");
     }
-
+    
     public void choiceAttack() {
         System.out.println("\n");
-        System.out.println("----- Escolha seu Ataque --------");
-        System.out.println("1- Basic Attack - Dano: ");
-        System.out.println("1- Ataque Frenetico - Dano: ");
-        System.out.println("1- Investida - Dano: ");
-        System.out.println("--------------------------------");
-        System.out.println("\n");
+        System.out.println("╔═══════════════════════════╗");
+        System.out.println("║    Escolha Seu Ataque     ║");
+        System.out.println("╟───────────────────────────╢");
+        System.out.println("║ 1-Basic Attack      Dano: ║");
+        System.out.println("╟───────────────────────────╢");
+        System.out.println("║ 2-Ataque Frenetico  Dano: ║");
+        System.out.println("╟───────────────────────────╢");
+        System.out.println("║ 1-Investida         Dano: ║");
+        System.out.println("╚═══════════════════════════╝");
     }
 }
