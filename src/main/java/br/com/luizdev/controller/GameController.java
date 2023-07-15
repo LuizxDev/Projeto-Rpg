@@ -35,63 +35,67 @@ public class GameController {
         warriorController = new WarriorController();
 
         aranhaController = new AranhaController();
-        
+
         wolfController = new WolfController();
-       
 
         random = new Random();
 
     }
 
-    public void exploreMountain(WarriorModel warriorModel, WolfModel wolfModel, AranhaModel aranhaModel) throws InterruptedException{
+    public void exploreMountain(WarriorModel warriorModel, WolfModel wolfModel, AranhaModel aranhaModel)
+            throws InterruptedException {
 
         final int CHANCE_PORTION = 30;
         final int CHANCE_ENEMY = 70;
         final int MISSION_CHANCE = 15;
 
-
         int chance = random.nextInt(100); // 100%
 
         switch (chance) {
             case MISSION_CHANCE:
-                ConsoleView.writeTerminal("Você encontrou o covil do inimigo! Prepare-se para uma batalha desafiadora e enfrente os capangas do vilão para chegar até ele.");
+                ConsoleView.writeTerminal(
+                        "Você encontrou o covil do inimigo! Prepare-se para uma batalha desafiadora e enfrente os capangas do vilão para chegar até ele.");
                 break;
             default:
                 if (chance <= CHANCE_ENEMY) {
-                    encounterEnemy(warriorModel, wolfModel , aranhaModel);
-                } else if(chance <= CHANCE_PORTION){
+                    encounterEnemy(warriorModel, wolfModel, aranhaModel);
+                } else if (chance <= CHANCE_PORTION) {
                     encounterPosion();
                     return;
-                }else{
-                    ConsoleView.writeTerminal("Você explorou a área, mas não encontrou nenhum inimigo. A Montanha das Sombras está quieta por enquanto.");
+                } else {
+                    ConsoleView.writeTerminal(
+                            "Você explorou a área, mas não encontrou nenhum inimigo. A Montanha das Sombras está quieta por enquanto.");
                     return;
                 }
         }
     }
 
-    public void encounterEnemy(WarriorModel warriorModel, WolfModel wolfModel, AranhaModel aranhaModel) throws InterruptedException{ //encontra um inimigo aleatorio entre aranha e lobo
+    public void encounterEnemy(WarriorModel warriorModel, WolfModel wolfModel, AranhaModel aranhaModel)
+            throws InterruptedException { // encontra um inimigo aleatorio entre aranha e lobo
         int enemyRandom = random.nextInt(2);
 
         switch (enemyRandom) {
-            case 0: //lobo
-            //ConsoleView.writeTerminal("Um "+ wolfModel.getName() +" feroz surgiu diante de você! Esteja pronto para enfrentar esse lobo das sombras!\n");
-            wolfController.RealizarAtaqueAleatorio(warriorModel);
-            warriorController.showStatus(warriorModel); 
-            warriorController.executeAttack(wolfModel, aranhaModel, enemyRandom);  
+            case 0: // lobo
+                ConsoleView.writeTerminal("Um " + wolfModel.getName()
+                        + " feroz surgiu diante de você! Esteja pronto para enfrentar esse lobo das sombras!\n");
+                wolfController.RealizarAtaqueAleatorio(warriorModel);
+                warriorController.showStatus(warriorModel);
+                warriorController.executeAttack(wolfModel, aranhaModel, enemyRandom);
                 break;
-            case 1: //aranha
-            //ConsoleView.writeTerminal("Uma " + aranhaModel.getName() +" gigante apareceu diante de você! Esteja preparado para enfrentar essa ameaça aracnídea!\n");           
+            case 1: // aranha
+                ConsoleView.writeTerminal("Uma " + aranhaModel.getName()
+                        + " gigante apareceu diante de você! Esteja preparado para enfrentar essa ameaça aracnídea!\n");
                 aranhaController.executeRandomAttack(warriorModel);
                 warriorController.showStatus(warriorModel);
                 warriorController.executeAttack(wolfModel, aranhaModel, enemyRandom);
                 break;
             default:
-            System.out.println("Opção Inválida. Tente Novamente.");
+                System.out.println("Opção Inválida. Tente Novamente.");
                 break;
         }
     }
 
-    public void encounterPosion() throws InterruptedException{
+    public void encounterPosion() throws InterruptedException {
         ConsoleView.writeTerminal(" Você encontrou uma poção! Em meio a trevas e perigos, a sorte sorri para você.");
         portionModel.setPortion(1);
     }
@@ -100,19 +104,18 @@ public class GameController {
         return warriorModel.getLife() <= 0;
     }
 
-    public void startMission(){
-        
+    public void startMission() {
+
     }
 
-    public void inventory(){
+    public void inventory() {
         System.out.println("------ Inventario -------");
         System.out.println("|Porção|------------ |" + portionModel.getPortion() + "un|");
-            System.out.println("--------------------------------");
+        System.out.println("--------------------------------");
     }
 
-    public void showStatusWarrior(WarriorModel warriorModel){
+    public void showStatusWarrior(WarriorModel warriorModel) {
         warriorController.showStatus(warriorModel);
     }
-
 
 }

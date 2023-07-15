@@ -11,8 +11,14 @@
 
 > ## A fazer `(Importante)`
 
-- Criar sistema de ataque do personagem principal `(A fazer)`
-- Fazer uma função so para Executar Ataques `(A fazer)`
+1. Criar sistema de ataque do personagem principal `(A fazer)`
+- Mostrar Status do inimigo depois do ataque `(A fazer)`
+- Mostrar dano dos poderes na escolha do ataque `(A fazer)`
+
+2. Outros
+- Mostrar dano apos ataque de inimigo `(A fazer)`
+
+3. Concluidos
 - substir metodo de condiçao para o swich na Função exploresMountain `(Concluido)`
 
 > ## Padroes 

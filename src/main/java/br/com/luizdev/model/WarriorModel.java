@@ -15,7 +15,7 @@ public class WarriorModel extends CharacterModel {
         super(120, "VOCÊ", 30);
         addPowers();
     }
-    
+
     private int basicAttack = 30;
     private int ataqueFrenético = 40;
     private int investida = 45;

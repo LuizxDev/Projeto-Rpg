@@ -13,7 +13,7 @@ public class AranhaModel extends CharacterModel {
      * Cria uma nova instancia da AranhaModel com valores padrão
      * Life 60, name: Aranha Venenosa, strength 25.
      */
-    public AranhaModel(){
+    public AranhaModel() {
         super(60, "Aranha Venenosa", 25);
         addPowers();
     }
@@ -27,10 +27,10 @@ public class AranhaModel extends CharacterModel {
     private ArrayList<Integer> powers = new ArrayList<Integer>();
 
     /**
-     * Adiciona os poderes da Aranha Venenosa na 
+     * Adiciona os poderes da Aranha Venenosa na
      * ArrayList powers
      */
-    public void addPowers(){
+    public void addPowers() {
         powers.add(TEIA_PEGAJOSA_DAMAGE);
         powers.add(ATAQUE_VENENOSO_DAMAGE);
     }
@@ -40,7 +40,7 @@ public class AranhaModel extends CharacterModel {
      *
      * @return Uma lista com os poderes da aranha venenosa.
      */
-    public ArrayList<Integer> getPowers(){
+    public ArrayList<Integer> getPowers() {
         return powers;
     }
 }
