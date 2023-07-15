@@ -5,22 +5,23 @@ import java.util.Random;
 import br.com.luizdev.model.WarriorModel;
 import br.com.luizdev.model.enemysModel.WolfModel;
 
-public class WolfController extends WolfModel {
+public class WolfController{
 
     private Random random;
-
+    private WolfModel wolfModel;
 
     public WolfController(){
+        wolfModel = new WolfModel();
         random = new Random();
     }
 
     
     public void realizarMordidaSombria(WarriorModel warriorModel){
-        warriorModel.setLife(warriorModel.getLife() - getPowers().get(1)); 
+        warriorModel.setLife(warriorModel.getLife() - wolfModel.getPowers().get(0)); 
     }
 
     public void realizarInvestidaDasSombras(WarriorModel warriorModel){
-        warriorModel.setLife(warriorModel.getLife() - getPowers().get(1)); 
+        warriorModel.setLife(warriorModel.getLife() - wolfModel.getPowers().get(1)); 
     }
 
     public void RealizarAtaqueAleatorio (WarriorModel warriorModel){

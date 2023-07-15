@@ -4,14 +4,20 @@ import java.util.Scanner;
 
 import br.com.luizdev.controller.GameController;
 import br.com.luizdev.model.WarriorModel;
+import br.com.luizdev.model.enemysModel.AranhaModel;
+import br.com.luizdev.model.enemysModel.WolfModel;
 
 public class ConsoleView {
 
+        private WolfModel wolfModel;
+        private AranhaModel aranhaModel;
         private GameController controller;
         private Scanner scanner;
         private WarriorModel warriorModel;
 
         public ConsoleView(GameController controller) {
+                wolfModel = new WolfModel();
+                aranhaModel = new AranhaModel();
                 warriorModel = new WarriorModel();
                 this.controller = controller;
                 scanner = new Scanner(System.in);
@@ -34,7 +40,7 @@ public class ConsoleView {
                         switch (choice) {
                                 case 1: // explorar floresta
                                         limparTelaConsole();
-                                        controller.exploreMountain(warriorModel);
+                                        controller.exploreMountain(warriorModel, wolfModel, aranhaModel);
                                         
                                         break;
                                 case 2: //ver status

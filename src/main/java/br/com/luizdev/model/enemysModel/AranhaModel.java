@@ -24,7 +24,7 @@ public class AranhaModel extends CharacterModel {
     /**
      * Cria uma ArrayLIst para armazenar os poderes da Aranha Venenosa
      */
-    ArrayList<Integer> powers = new ArrayList<Integer>();
+    private ArrayList<Integer> powers = new ArrayList<Integer>();
 
     /**
      * Adiciona os poderes da Aranha Venenosa na 

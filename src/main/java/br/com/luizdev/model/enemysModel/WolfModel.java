@@ -24,7 +24,7 @@ public class WolfModel extends CharacterModel {
     private final int INVESTIDA_DAS_SOMBRAS = 25; //valor fixo de 25
 
     
-    ArrayList<Integer> powers = new ArrayList<Integer>();
+    private ArrayList<Integer> powers = new ArrayList<Integer>();
 
     /**
      * Adiciona os poderes do Lobo Das Sombras na 
@@ -39,6 +39,7 @@ public class WolfModel extends CharacterModel {
      * 
      * @return Uma lista com os poderes da aranha venenosa.
      */
+    
     public ArrayList<Integer> getPowers(){
         return powers;
     }
